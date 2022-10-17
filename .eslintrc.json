@@ -42,7 +42,10 @@
     "no-alert": 0,
     "react-hooks/exhaustive-deps": 0,
     "react/no-array-index-key": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/jsx-pascal-case": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-useless-escape": 0
   },
   "settings": {
     "import/parsers": {
