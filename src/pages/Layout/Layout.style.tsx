@@ -7,7 +7,11 @@ const Wrapper = styled.div`
 
 const Header = styled.header``;
 
-const Contents = styled.main``;
+const Contents = styled.main`
+  max-width: 1400px;
+  min-width: ${({ theme }) => theme.size.pc};
+  margin: 0 auto;
+`;
 
 const Footer = styled.footer``;
 

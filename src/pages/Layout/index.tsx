@@ -1,16 +1,16 @@
 import { ReactNode } from 'react';
-import { Wrapper, Header, Contents, Footer } from './index.style';
+import { Wrapper, Header, Contents, Footer } from '@/pages/Layout/Layout.style';
 
 interface LayoutProps {
-  header: ReactNode;
+  header?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
 }
 
-function Layout({ header, children, footer, ...props }: LayoutProps) {
+function Layout({ header, children, footer, ...rest }: LayoutProps) {
   return (
-    <Wrapper {...props}>
-      <Header>{header}</Header>
+    <Wrapper {...rest}>
+      {header && <Header>{header}</Header>}
       <Contents>{children}</Contents>
       {footer && <Footer>{footer}</Footer>}
     </Wrapper>
