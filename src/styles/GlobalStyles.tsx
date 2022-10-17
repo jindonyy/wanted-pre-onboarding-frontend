@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { font } from '@/styles/theme/font';
+import { color } from '@/styles/theme/color';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   html,
   body,
   div,
@@ -85,14 +87,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: inherit;
     font-size: 100%;
-    font-weight: inherit;
+    font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
-    :focus-visible{
-      outline: none;
-    }
   }
 
   article,
@@ -110,33 +108,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font: 400 62.5%/1.4 'Noto Sans KR', sans-serif;
+    font: ${font.weight.regular} 62.5%/1.5 ${font.family.base};
   }
 
   body {
     width: 100%;
-    color: #010101;
+    color: ${color.black};
     font: inherit;
+    font-size: ${font.size.base};
     letter-spacing: -0.4px;
-    font-size:1.6rem
+    background: ${color.white};
   }
 
   ol,
   ul {
     list-style: none;
-  }
-
-  blockquote,
-  q {
-    quotes: none;
-  }
-
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
-    content: '';
-    content: none;
   }
 
   input,
@@ -198,11 +184,10 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
     color: inherit;
     text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
-export default GlobalStyles;
+export default GlobalStyle;
