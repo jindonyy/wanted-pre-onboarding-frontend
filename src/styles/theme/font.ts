@@ -4,7 +4,8 @@ const font = {
     small: '1.4rem',
     base: '1.6rem',
     medium: '1.8rem',
-    large: '2.2rem'
+    large: '2rem',
+    xLarge: '3rem'
   },
   weight: {
     regular: 400,
