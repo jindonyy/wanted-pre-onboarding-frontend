@@ -8,9 +8,9 @@ const $Container = styled.div`
 const $Header = styled.header``;
 
 const $Contents = styled.main`
-  max-width: 140rem;
-  min-width: ${({ theme }) => theme.size.pc};
+  max-width: ${({ theme }) => `${theme.size.media.pc - 1}px`};
   margin: 0 auto;
+  padding: 3rem 1.5rem;
 `;
 
 const $Footer = styled.footer``;

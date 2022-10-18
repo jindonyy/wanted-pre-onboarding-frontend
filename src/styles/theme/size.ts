@@ -1,8 +1,8 @@
 const size = {
-  MEDIA: {
-    mobile: '375px',
-    tablet: '768px',
-    pc: '1025px'
+  media: {
+    mobile: 375,
+    tablet: 768,
+    pc: 1025
   }
 };
 
