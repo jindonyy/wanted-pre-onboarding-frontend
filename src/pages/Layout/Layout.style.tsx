@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 const Header = styled.header``;
 
 const Contents = styled.main`
-  max-width: 1400px;
+  max-width: 140rem;
   min-width: ${({ theme }) => theme.size.pc};
   margin: 0 auto;
 `;
