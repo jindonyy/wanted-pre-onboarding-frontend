@@ -1,11 +1,11 @@
-import { $Button } from '@/components/common/Button/Button.styled';
+import { $ButtonProp, $Button } from '@/components/common/Button/Button.styled';
 
-type ButtonProps = {
+interface ButtonProps extends $ButtonProp {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
-};
+}
 
 export default function Button({
   children,

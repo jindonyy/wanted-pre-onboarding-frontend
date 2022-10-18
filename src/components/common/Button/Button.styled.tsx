@@ -1,20 +1,73 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const $Button = styled.button`
-  ${({ theme }) => theme.mixins.flexBox({ justify: 'center', align: 'center' })};
+export type $ButtonProp = {
+  size?: keyof typeof sizeStyle;
+  color?: keyof typeof colorStyle;
+};
+
+const large = css<$ButtonProp>`
   min-width: 20rem;
-  height: 4.6rem;
-  padding: 0 1.5rem;
-  font-size: ${({ theme }) => theme.font.size.base};
-  font-weight: ${({ theme }) => theme.font.weight.medium};
-  color: ${({ theme }) => theme.color.white};
-  background: ${({ theme }) => theme.palette.primary.initial};
+  min-height: 4.6rem;
   border-radius: 2.3rem;
+`;
+
+const small = css<$ButtonProp>`
+  min-width: 6.5rem;
+  min-height: 3rem;
+  border-radius: 2rem;
+  font-size: ${({ theme }) => theme.font.size.small};
+`;
+
+const sizeStyle = {
+  large,
+  small
+};
+
+const primary = {
+  default: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.palette.primary.initial};
+    color: ${({ theme }) => theme.color.white};
+  `,
+  hover: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.palette.primary.hover};
+  `,
+  disabled: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.palette.primary.disabled};
+  `
+};
+
+const white = {
+  default: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.color.white};
+    color: ${({ theme }) => theme.palette.primary.initial};
+    border: ${({ theme }) => `1px solid ${theme.palette.primary.initial}`};
+  `,
+  hover: css<$ButtonProp>`
+    color: ${({ theme }) => theme.palette.primary.hover};
+    border: ${({ theme }) => `1px solid ${theme.palette.primary.hover}`};
+  `,
+  disabled: css<$ButtonProp>`
+    color: ${({ theme }) => theme.palette.primary.disabled};
+    border: ${({ theme }) => `1px solid ${theme.palette.primary.disabled}`};
+  `
+};
+
+const colorStyle = {
+  primary,
+  white
+};
+
+const $Button = styled.button<$ButtonProp>`
+  ${({ theme }) => theme.mixins.flexBox({ justify: 'center', align: 'center' })};
+  padding: 0 1.5rem;
+  font-weight: ${({ theme }) => theme.font.weight.medium};
+  ${({ size = 'large' }) => sizeStyle[size]};
+  ${({ color = 'primary' }) => colorStyle[color].default};
   :hover {
-    background: ${({ theme }) => theme.palette.primary.hover};
+    ${({ color = 'primary' }) => colorStyle[color].hover};
   }
   :disabled {
-    background: ${({ theme }) => theme.palette.primary.disabled};
+    ${({ color = 'primary' }) => colorStyle[color].disabled};
   }
 `;
 
