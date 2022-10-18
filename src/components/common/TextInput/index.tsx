@@ -12,16 +12,18 @@ type TextInputProps = {
   title?: string;
   onChange?: (args: any) => void;
   defaultValue?: string;
+  className?: string;
 };
 
 export default function TextInput({
   label,
   type = 'text',
   placeholder = '',
+  className,
   ...rest
 }: TextInputProps) {
   return (
-    <$TextInputWrap>
+    <$TextInputWrap className={className}>
       {label && <$Label>{label}</$Label>}
       <$TextInput type={type} placeholder={placeholder} {...rest} />
     </$TextInputWrap>
