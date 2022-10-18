@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const $Button = styled.button`
   ${({ theme }) => theme.mixins.flexBox({ justify: 'center', align: 'center' })};
-  width: 100%;
-  height: 4rem;
-  padding: 0 2rem;
+  min-width: 20rem;
+  height: 4.6rem;
+  padding: 0 1.5rem;
   font-size: ${({ theme }) => theme.font.size.base};
   font-weight: ${({ theme }) => theme.font.weight.medium};
   color: ${({ theme }) => theme.color.white};
   background: ${({ theme }) => theme.palette.primary.initial};
-  border-radius: 1.8rem;
+  border-radius: 2.3rem;
   :hover {
     background: ${({ theme }) => theme.palette.primary.hover};
   }
