@@ -11,7 +11,6 @@ const $Label = styled.label`
 `;
 
 const $TextInput = styled.input`
-  width: 25rem;
   padding: 0.8rem 1rem;
   border: ${({ theme }) => `1px solid ${theme.color.grey[300]}`};
   border-radius: 0.3rem;
