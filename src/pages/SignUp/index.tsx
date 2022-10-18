@@ -73,7 +73,7 @@ export default function SignUp() {
     if (response.statusCode === 400) alert(response.message);
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
-      navigate(ROUTE_URL.TODO_LIST);
+      navigate(ROUTE_URL.TODO);
     }
   };
 
@@ -110,9 +110,6 @@ export default function SignUp() {
           <$ButtonWrapper>
             <Button type="submit" disabled={hasInputError()}>
               회원가입
-            </Button>
-            <Button type="submit" onClick={() => navigate(ROUTE_URL.LOGIN)}>
-              로그인하러 가기
             </Button>
           </$ButtonWrapper>
         </form>

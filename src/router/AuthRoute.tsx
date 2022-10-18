@@ -6,14 +6,10 @@ export default function AuthRoute() {
   const hasAccessToken = () => !!localStorage.getItem('accessToken');
   const isLogin = hasAccessToken();
   const isLoginPage = pathname === ROUTE_URL.BASE || pathname === ROUTE_URL.LOGIN;
+  const isSignUpPage = pathname === ROUTE_URL.SIGNUP;
 
-  if (!isLogin && !isLoginPage) {
-    return <Navigate to={ROUTE_URL.BASE} replace />;
-  }
-
-  if (isLogin && isLoginPage) {
-    return <Navigate to={ROUTE_URL.TODO_LIST} replace />;
-  }
+  if (!isLogin && !(isLoginPage || isSignUpPage)) return <Navigate to={ROUTE_URL.BASE} replace />;
+  if (isLogin && (isLoginPage || isSignUpPage)) return <Navigate to={ROUTE_URL.TODO} replace />;
 
   return <Outlet />;
 }

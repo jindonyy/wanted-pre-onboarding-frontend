@@ -29,7 +29,7 @@ export default function Login() {
     if (response.statusCode === 401) alert('아이디 및 비밀번호를 다시 확인해주세요.');
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
-      navigate(ROUTE_URL.TODO_LIST);
+      navigate(ROUTE_URL.TODO);
     }
   };
 
@@ -57,8 +57,11 @@ export default function Login() {
             />
           </$InputWrap>
           <$ButtonWrapper>
-            <Button type="submit" disabled={!inputValue.email && !inputValue.password}>
+            <Button type="submit" disabled={!(inputValue.email && inputValue.password)}>
               로그인
+            </Button>
+            <Button type="button" onClick={() => navigate(ROUTE_URL.SIGNUP)}>
+              회원가입하러 가기
             </Button>
           </$ButtonWrapper>
         </form>
