@@ -4,6 +4,7 @@ import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/SignUp/SignUp.styled
 import Layout from '@/pages/Layout';
 import PageTitle from '@/components/common/PageTitle';
 import Button from '@/components/common/Button';
+import Link from '@/components/common/Link';
 import TextInput from '@/components/common/TextInput';
 import InputMessage from '@/components/common/InputMessage';
 import useInputValue from '@/hooks/useInputValue';
@@ -111,6 +112,7 @@ export default function SignUp() {
             <Button type="submit" disabled={hasInputError()}>
               회원가입
             </Button>
+            <Link to="LOGIN">로그인하러 가기</Link>
           </$ButtonWrap>
         </form>
       </$Contents>

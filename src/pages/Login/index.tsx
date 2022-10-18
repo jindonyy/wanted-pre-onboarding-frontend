@@ -4,6 +4,7 @@ import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/Login/Login.styled';
 import Layout from '@/pages/Layout';
 import PageTitle from '@/components/common/PageTitle';
 import Button from '@/components/common/Button';
+import Link from '@/components/common/Link';
 import TextInput from '@/components/common/TextInput';
 import useInputValue from '@/hooks/useInputValue';
 import { UserAuth, fetchSignInAuth } from '@/api/auth';
@@ -60,9 +61,7 @@ export default function Login() {
             <Button type="submit" disabled={!(inputValue.email && inputValue.password)}>
               로그인
             </Button>
-            <Button type="button" onClick={() => navigate(ROUTE_URL.SIGNUP)}>
-              회원가입하러 가기
-            </Button>
+            <Link to="SIGNUP">회원가입하러 가기</Link>
           </$ButtonWrap>
         </form>
       </$Contents>
