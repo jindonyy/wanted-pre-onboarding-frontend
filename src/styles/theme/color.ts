@@ -3,7 +3,7 @@ const color = {
   grey: {
     50: '#F9F9F9',
     100: '#F1F1F1',
-    200: '#EEEEEE',
+    200: '#EDEDED',
     300: '#CCCCCC',
     400: '#AAAAAA',
     500: '#979797'
