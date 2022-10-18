@@ -15,7 +15,7 @@ const $InputWrap = styled($TextInputWrap)`
   }
 `;
 
-const $ButtonWrapper = styled.div`
+const $ButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,4 +23,4 @@ const $ButtonWrapper = styled.div`
   margin-top: 4rem;
 `;
 
-export { $Contents, $InputWrap, $ButtonWrapper };
+export { $Contents, $InputWrap, $ButtonWrap };

@@ -1,6 +1,6 @@
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { $Contents, $InputWrap, $ButtonWrapper } from '@/pages/SignUp/SignUp.styled';
+import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/SignUp/SignUp.styled';
 import Layout from '@/pages/Layout';
 import PageTitle from '@/components/common/PageTitle';
 import Button from '@/components/common/Button';
@@ -107,11 +107,11 @@ export default function SignUp() {
               <InputMessage>{INPUT_ERROR.password.message}</InputMessage>
             )}
           </$InputWrap>
-          <$ButtonWrapper>
+          <$ButtonWrap>
             <Button type="submit" disabled={hasInputError()}>
               회원가입
             </Button>
-          </$ButtonWrapper>
+          </$ButtonWrap>
         </form>
       </$Contents>
     </Layout>

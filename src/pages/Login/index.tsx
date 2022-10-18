@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { $Contents, $InputWrap, $ButtonWrapper } from '@/pages/Login/Login.styled';
+import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/Login/Login.styled';
 import Layout from '@/pages/Layout';
 import PageTitle from '@/components/common/PageTitle';
 import Button from '@/components/common/Button';
@@ -56,14 +56,14 @@ export default function Login() {
               onChange={debounce(updateInputValue, INPUT_DELAY)}
             />
           </$InputWrap>
-          <$ButtonWrapper>
+          <$ButtonWrap>
             <Button type="submit" disabled={!(inputValue.email && inputValue.password)}>
               로그인
             </Button>
             <Button type="button" onClick={() => navigate(ROUTE_URL.SIGNUP)}>
               회원가입하러 가기
             </Button>
-          </$ButtonWrapper>
+          </$ButtonWrap>
         </form>
       </$Contents>
     </Layout>
