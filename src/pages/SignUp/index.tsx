@@ -1,4 +1,4 @@
-import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
+import { useEffect, useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/SignUp/SignUp.styled';
 import Layout from '@/pages/Layout';
@@ -11,8 +11,7 @@ import useInputValue from '@/hooks/useInputValue';
 import { debounce } from '@/utils/eventDelay';
 import { UserAuth, fetchSignUpAuth } from '@/api/auth';
 import ROUTE_URL from '@/router/routeURL';
-
-const INPUT_DELAY = 300;
+import { INPUT_DELAY } from '@/constants/time';
 
 const INPUT_ERROR = {
   email: {
@@ -23,6 +22,11 @@ const INPUT_ERROR = {
     condition: { min: 8 },
     message: '8자리 이상 입력해주세요.'
   }
+};
+
+const initialValue = {
+  email: '',
+  password: ''
 };
 
 const initialError = {
@@ -37,16 +41,10 @@ type Error = {
 };
 
 export default function SignUp() {
-  const { inputValue, setInputValue, isRightSize, hasRequiredCharacters } = useInputValue();
+  const { inputValue, updateInputValue, isRightSize, hasRequiredCharacters } =
+    useInputValue(initialValue);
   const [inputError, setInputError] = useState<Error>(initialError);
   const navigate = useNavigate();
-
-  const updateInputValue = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue({
-      ...inputValue,
-      [event.target.name]: event.target.value
-    });
-  };
 
   const checkUserInputError = () => {
     const newError: Error = { ...inputError };
@@ -70,7 +68,9 @@ export default function SignUp() {
 
   const onSignUp = async (event: FormEvent) => {
     event.preventDefault();
+
     const response = await fetchSignUpAuth(inputValue as UserAuth);
+
     if (response.statusCode === 400) alert(response.message);
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
@@ -89,6 +89,7 @@ export default function SignUp() {
               type="email"
               name="email"
               required
+              defaultValue={inputValue.email}
               onChange={debounce(updateInputValue, INPUT_DELAY)}
             />
             {inputValue.email && inputError.email && (
@@ -102,6 +103,7 @@ export default function SignUp() {
               type="password"
               required
               minLength={INPUT_ERROR.password.condition.min}
+              defaultValue={inputValue.password}
               onChange={debounce(updateInputValue, INPUT_DELAY)}
             />
             {inputValue.password && inputError.password && (

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from 'react';
+import { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { $Contents, $InputWrap, $ButtonWrap } from '@/pages/Login/Login.styled';
 import Layout from '@/pages/Layout';
@@ -10,23 +10,22 @@ import useInputValue from '@/hooks/useInputValue';
 import { UserAuth, fetchSignInAuth } from '@/api/auth';
 import ROUTE_URL from '@/router/routeURL';
 import { debounce } from '@/utils/eventDelay';
+import { INPUT_DELAY } from '@/constants/time';
 
-const INPUT_DELAY = 300;
+const initialValue = {
+  email: '',
+  password: ''
+};
 
 export default function Login() {
-  const { inputValue, setInputValue } = useInputValue();
+  const { inputValue, updateInputValue } = useInputValue(initialValue);
   const navigate = useNavigate();
-
-  const updateInputValue = (event: ChangeEvent<HTMLInputElement>) => {
-    setInputValue({
-      ...inputValue,
-      [event.target.name]: event.target.value
-    });
-  };
 
   const onSignIn = async (event: FormEvent) => {
     event.preventDefault();
+
     const response = await fetchSignInAuth(inputValue as UserAuth);
+
     if (response.statusCode === 401) alert('아이디 및 비밀번호를 다시 확인해주세요.');
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
@@ -45,6 +44,7 @@ export default function Login() {
               type="email"
               name="email"
               required
+              defaultValue={inputValue.email}
               onChange={debounce(updateInputValue, INPUT_DELAY)}
             />
           </$InputWrap>
@@ -54,6 +54,7 @@ export default function Login() {
               name="password"
               type="password"
               required
+              defaultValue={inputValue.password}
               onChange={debounce(updateInputValue, INPUT_DELAY)}
             />
           </$InputWrap>
