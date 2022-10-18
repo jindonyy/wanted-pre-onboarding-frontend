@@ -1,8 +1,8 @@
 import { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { $Contents, $Form, $InputWrap, $ButtonWrapper } from '@/pages/SignUp/SignUp.styled';
+import { $Contents, $InputWrap, $ButtonWrapper } from '@/pages/SignUp/SignUp.styled';
 import Layout from '@/pages/Layout';
-import Title from '@/components/common/Title';
+import PageTitle from '@/components/common/PageTitle';
 import Button from '@/components/common/Button';
 import TextInput from '@/components/common/TextInput';
 import InputMessage from '@/components/common/InputMessage';
@@ -80,8 +80,8 @@ export default function SignUp() {
   return (
     <Layout>
       <$Contents>
-        <Title>회원가입</Title>
-        <$Form name="userInfo" onSubmit={onSignUp}>
+        <PageTitle>회원가입</PageTitle>
+        <form name="userInfo" onSubmit={onSignUp}>
           <$InputWrap>
             <TextInput
               label="이메일"
@@ -115,7 +115,7 @@ export default function SignUp() {
               로그인하러 가기
             </Button>
           </$ButtonWrapper>
-        </$Form>
+        </form>
       </$Contents>
     </Layout>
   );

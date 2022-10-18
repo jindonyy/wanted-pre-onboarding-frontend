@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-const $Title = styled.h1`
+const $PageTitle = styled.h1`
+  margin-bottom: 4rem;
   font-size: ${({ theme }) => theme.font.size.large};
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `;
 
-export { $Title };
+export { $PageTitle };
