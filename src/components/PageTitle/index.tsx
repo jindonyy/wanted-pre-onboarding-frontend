@@ -1,4 +1,4 @@
-import { $PageTitle } from '@/components/common/PageTitle/PageTitle.styled';
+import { $PageTitle } from '@/components/PageTitle/PageTitle.styled';
 
 type PageTitleProps = {
   children: React.ReactNode;

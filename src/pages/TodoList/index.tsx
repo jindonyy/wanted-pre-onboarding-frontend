@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { $Contents, $List } from '@/pages/TodoList/TodoList.styled';
 import { fetchTodosToGet } from '@/api/todo';
 import Layout from '@/pages/Layout';
-import PageTitle from '@/components/common/PageTitle';
+import PageTitle from '@/components/PageTitle';
 import CreateTodoArea from '@/pages/TodoList/CreateTodoArea';
 import ListItem, { Todo } from '@/pages/TodoList/ListItem';
 

@@ -1,4 +1,4 @@
-import { $Message } from '@/components/common/InputMessage/InputMessage.styled';
+import { $Message } from '@/components/InputMessage/InputMessage.styled';
 
 export type InputMessageProps = {
   children: React.ReactNode;

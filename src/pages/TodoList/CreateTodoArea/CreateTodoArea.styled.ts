@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import TextInput from '@/components/common/TextInput';
+import TextInput from '@/components/TextInput';
 
 const $Form = styled.form`
   ${({ theme }) => theme.mixins.flexBox({ justify: 'center' })};

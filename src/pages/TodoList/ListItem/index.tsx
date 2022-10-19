@@ -5,7 +5,7 @@ import {
   $ModificationInput,
   $ListButtonWrap
 } from '@/pages/TodoList/ListItem/ListItem.styled';
-import Button from '@/components/common/Button';
+import Button from '@/components/Button';
 import { debounce } from '@/utils/eventDelay';
 import { INPUT_DELAY } from '@/constants/time';
 import { FormEvent, useState } from 'react';

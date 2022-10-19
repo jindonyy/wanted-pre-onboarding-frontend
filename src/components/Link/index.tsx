@@ -1,4 +1,4 @@
-import { $Link } from '@/components/common/Link/Link.styled';
+import { $Link } from '@/components/Link/Link.styled';
 import ROUTE_URL from '@/router/routeURL';
 
 type ButtonProps = {

@@ -1,4 +1,4 @@
-import { $TextInputWrap, $TextInput, $Label } from '@/components/common/TextInput/TextInput.styled';
+import { $TextInputWrap, $TextInput, $Label } from '@/components/TextInput/TextInput.styled';
 
 type TextInputProps = {
   label?: string;

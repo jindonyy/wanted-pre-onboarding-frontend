@@ -1,4 +1,4 @@
-import { $ButtonProp, $Button } from '@/components/common/Button/Button.styled';
+import { $ButtonProp, $Button } from '@/components/Button/Button.styled';
 
 interface ButtonProps extends $ButtonProp {
   children: React.ReactNode;
