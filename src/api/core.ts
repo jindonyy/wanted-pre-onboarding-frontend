@@ -65,5 +65,7 @@ export const FETCH_OPTION = {
 
 export const requestAPI = async (url: string, option: FetchOption) => {
   const response = await fetch(process.env.REACT_APP_BASE_URL + url, option);
-  return response.json();
+  const result = option.method === 'DELETE' ? response : response.json();
+
+  return result;
 };

@@ -1,12 +1,13 @@
 import { FETCH_OPTION, requestAPI } from '@/api/core';
 
-type Todo = {
+type TodoToCreate = {
   todo: string;
 };
 
-interface TodoToUpdate extends Todo {
+type TodoToUpdate = {
+  todo: string;
   isCompleted: boolean;
-}
+};
 
 const getAuthorization = () => {
   const accessToken = localStorage.getItem('accessToken')?.split('"')[1];
@@ -17,10 +18,9 @@ const getAuthorization = () => {
   return authHeader;
 };
 
-export const fetchTodoToCreate = async (todo: Todo) => {
+export const fetchTodoToCreate = async (todo: TodoToCreate) => {
   const authHeader = getAuthorization();
-
-  const response = await requestAPI(`/todos`, FETCH_OPTION.POST<Todo>(todo, authHeader));
+  const response = await requestAPI(`/todos`, FETCH_OPTION.POST<TodoToCreate>(todo, authHeader));
 
   return response;
 };
@@ -35,7 +35,7 @@ export const fetchTodosToGet = async () => {
 export const fetchTodoToUpdate = async (todo: TodoToUpdate, id: number) => {
   const authHeader = getAuthorization();
   const response = await requestAPI(
-    `/todos/:${id}`,
+    `/todos/${id}`,
     FETCH_OPTION.PUT<TodoToUpdate>(todo, authHeader)
   );
 
@@ -43,9 +43,8 @@ export const fetchTodoToUpdate = async (todo: TodoToUpdate, id: number) => {
 };
 
 export const fetchTodoToDelete = async (id: number) => {
-  console.log(id);
   const authHeader = getAuthorization();
-  const response = await requestAPI(`/todos/:${id}`, FETCH_OPTION.DELETE(authHeader));
+  const response = await requestAPI(`/todos/${id}`, FETCH_OPTION.DELETE(authHeader));
 
   return response;
 };
