@@ -52,9 +52,24 @@ const white = {
   `
 };
 
+const black = {
+  default: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.white};
+    border: ${({ theme }) => `1px solid ${theme.color.white}`};
+  `,
+  hover: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.color.grey[500]};
+  `,
+  disabled: css<$ButtonProp>`
+    background-color: ${({ theme }) => theme.color.grey[400]};
+  `
+};
+
 const colorStyle = {
   primary,
-  white
+  white,
+  black
 };
 
 const $Button = styled.button<$ButtonProp>`
