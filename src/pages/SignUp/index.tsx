@@ -122,6 +122,3 @@ export default function SignUp() {
     </Layout>
   );
 }
-function hasFeatError(statusCode: any) {
-  throw new Error('Function not implemented.');
-}
