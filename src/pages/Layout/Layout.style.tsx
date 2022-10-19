@@ -10,7 +10,7 @@ const $Header = styled.header``;
 const $Contents = styled.main`
   max-width: ${({ theme }) => `${theme.size.media.pc - 1}px`};
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 0 1.5rem;
 `;
 
 const $Footer = styled.footer``;
