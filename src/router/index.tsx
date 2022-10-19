@@ -2,7 +2,7 @@ import ROUTE_URL from '@/router/routeURL';
 import AuthRoute from '@/router/AuthRoute';
 import Login from '@/pages/Login';
 import SignUp from '@/pages/SignUp';
-import Todo from '@/pages/Todo';
+import Todo from '@/pages/TodoList';
 
 export const routes = [
   {
