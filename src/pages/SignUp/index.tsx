@@ -12,6 +12,7 @@ import { debounce } from '@/utils/eventDelay';
 import { UserAuth, fetchSignUpAuth } from '@/api/auth';
 import ROUTE_URL from '@/router/routeURL';
 import { INPUT_DELAY } from '@/constants/time';
+import { hasFetchError } from '@/utils/error';
 
 const INPUT_ERROR = {
   email: {
@@ -71,7 +72,7 @@ export default function SignUp() {
 
     const response = await fetchSignUpAuth(inputValue as UserAuth);
 
-    if (response.statusCode === 400) alert(response.message);
+    if (hasFetchError(response.statusCode)) alert(response.message);
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
       navigate(ROUTE_URL.TODO);
@@ -120,4 +121,7 @@ export default function SignUp() {
       </$Contents>
     </Layout>
   );
+}
+function hasFeatError(statusCode: any) {
+  throw new Error('Function not implemented.');
 }

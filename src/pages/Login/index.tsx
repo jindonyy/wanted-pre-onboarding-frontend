@@ -11,6 +11,7 @@ import { UserAuth, fetchSignInAuth } from '@/api/auth';
 import ROUTE_URL from '@/router/routeURL';
 import { debounce } from '@/utils/eventDelay';
 import { INPUT_DELAY } from '@/constants/time';
+import { hasFetchError } from '@/utils/error';
 
 const initialValue = {
   email: '',
@@ -26,7 +27,7 @@ export default function Login() {
 
     const response = await fetchSignInAuth(inputValue as UserAuth);
 
-    if (response.statusCode === 401) alert('아이디 및 비밀번호를 다시 확인해주세요.');
+    if (hasFetchError(response.statusCode)) alert('아이디 및 비밀번호를 다시 확인해주세요.');
     if (response.access_token) {
       localStorage.setItem('accessToken', JSON.stringify(response.access_token));
       navigate(ROUTE_URL.TODO);
